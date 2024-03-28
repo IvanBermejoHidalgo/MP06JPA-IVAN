@@ -1,0 +1,2 @@
+Miercoles,10:00:00,11:00:00,1,MATH202,GRP1
+Lunes,10:00:00,11:00:00,1,MP06,Prueba33
