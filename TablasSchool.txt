@@ -1,0 +1,49 @@
+﻿CREATE TABLE teachers (
+  id INTEGER PRIMARY KEY,
+  firstname VARCHAR(255),
+  lastname VARCHAR(255),
+  email VARCHAR(255),
+  department_code INTEGER NOT NULL,
+  CONSTRAINT fk_department
+        FOREIGN KEY (department_code)
+        REFERENCES departments(code)
+);
+
+
+
+
+CREATE TABLE departments (
+  code INTEGER PRIMARY KEY,
+  name VARCHAR(255),
+  phone VARCHAR(255)
+);
+
+
+
+
+CREATE TABLE sessions (
+  week_day VARCHAR(255),
+  starts TIME,
+  finishes TIME,
+  teacher_id INTEGER REFERENCES teachers(id),
+  subject_code VARCHAR(255) REFERENCES subjects(code),
+  group_code VARCHAR(255) REFERENCES groups(code),
+  PRIMARY KEY (week_day)
+);
+
+
+
+
+CREATE TABLE subjects (
+  code VARCHAR(255) PRIMARY KEY,
+  description TEXT
+);
+
+
+
+
+CREATE TABLE groups (
+  code VARCHAR(255) PRIMARY KEY,
+  curriculum TEXT,
+  course INTEGER
+);
